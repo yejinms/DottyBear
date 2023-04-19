@@ -1,0 +1,12 @@
+{
+  "data" : [
+    {
+      "filename" : "MyApp.swift",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
