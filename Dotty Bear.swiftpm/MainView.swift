@@ -55,12 +55,12 @@ struct MainView: View {
                             .frame(width: 60, height: 60)
                     }
                     .tint(Color(hex:  0xaee459))
-                    .offset(x:140, y:360)
+                    .offset(x:140, y:350)
                     .shadow(radius: 15)
                 }
             }
             .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 8) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0) {
                     showButton = true
                 } //버튼이 등장하는 데까지 걸리는 시간
             }

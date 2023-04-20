@@ -13,7 +13,7 @@ struct MapView: View {
     
     var body: some View {
         ZStack{
-            NavigationLink(destination: MainView(), tag: 1, selection: self.$tag ) {
+            NavigationLink(destination: TouchView(), tag: 1, selection: self.$tag ) {
                 EmptyView()
             }
             Image("way")
@@ -51,7 +51,7 @@ struct MapView: View {
                 }
                 .tint(Color(hex:  0xffffff))
                 .shadow(radius: 15)
-                .offset(x:140, y:360)
+                .offset(x:140, y:350)
             
         }
     }
