@@ -100,8 +100,112 @@ struct TouchView: View {
     @State var btn5Image: Image = Image("touchpoint")
     @State var btn6Image: Image = Image("touchpoint")
     
-    @State var nextBtn: UIButton!
-    @State var dotRain: UIImageView!
+    @State var btn1IsHidden = false
+    @State var btn2IsHidden = false
+    @State var btn3IsHidden = false
+    @State var btn4IsHidden = false
+    @State var btn5IsHidden = false
+    @State var btn6IsHidden = false
+    
+    
+    @State var dotRain = Image("dot_rain")
+    
+    
+    func playSound(soundName: String) {
+        let url = Bundle.main.url(forResource: soundName, withExtension: "mp3")
+        player = try! AVAudioPlayer(contentsOf: url!)
+        //player.numberOfLoops = 1
+        player.play()
+    }
+    
+    func r(){
+        
+        btn1Image = Image("touchpoint2")
+        btn2Image = Image("touchpoint2")
+        btn3Image = Image("touchpoint2")
+        btn4Image = Image("touchpoint3")
+        btn5Image = Image("touchpoint2")
+        btn6Image = Image("touchpoint3")
+        count = 4
+        letter = "r"
+        
+    }
+    
+    func a(){
+        btn1Image = Image("touchpoint2")
+        btn2Image = Image("touchpoint3")
+        btn3Image = Image("touchpoint3")
+        btn4Image = Image("touchpoint3")
+        btn5Image = Image("touchpoint3")
+        btn6Image = Image("touchpoint3")
+        count = 1
+        letter = "a"
+    }
+    
+    func i(){
+        btn1Image = Image("touchpoint3")
+        btn2Image = Image("touchpoint2")
+        btn3Image = Image("touchpoint3")
+        btn4Image = Image("touchpoint2")
+        btn5Image = Image("touchpoint3")
+        btn6Image = Image("touchpoint3")
+        count = 2
+        letter = "i"
+    }
+    
+    
+    func n(){
+        btn1Image = Image("touchpoint2")
+        btn2Image = Image("touchpoint3")
+        btn3Image = Image("touchpoint2")
+        btn4Image = Image("touchpoint2")
+        btn5Image = Image("touchpoint2")
+        btn6Image = Image("touchpoint3")
+        count = 4
+        letter = "n"
+    }
+    
+
+    func rain(){
+        btn1IsHidden = true
+        btn2IsHidden = true
+        btn3IsHidden = true
+        btn4IsHidden = true
+        btn5IsHidden = true
+        btn6IsHidden = true
+        letter = "rain"
+        
+//        navigationController?.pushViewController(RainViewController(), animated: true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+            
+            
+            self.letterLabel.alpha = 0.0
+            self.letterLabel.text = "RAIN"
+            self.playSound(soundName: "sound_rain")
+            UIView.animate(withDuration: 1.0, delay: 0.0, options: .curveEaseInOut, animations: {
+                self.letterLabel.alpha = 1.0 // animate the alpha to 1.0 (fully opaque)
+            }, completion: nil)
+            //글자 등장
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                TTSManager.shared.play(self.letter) //읽기
+            })
+            UIView.animate(withDuration: 1.0, delay: 0.0, options: .curveEaseInOut, animations: {
+                Image(systemName: "arrow.right.circle")
+                    .opacity(1.0)// animate the alpha to 1.0 (fully opaque)
+            }, completion: nil)
+            
+            
+            
+            
+                })
+    }
+    
+    
+    
+    
+    
+    
+    
     
     var body: some View {
         ZStack {
