@@ -9,7 +9,7 @@ struct MainView: View {
         
         NavigationView{
             ZStack{
-                NavigationLink(destination: EmptyView(), tag: 1, selection: self.$tag ) {
+                NavigationLink(destination: MapView(), tag: 1, selection: self.$tag ) {
                     EmptyView()
                 }
                 ZStack{
@@ -54,15 +54,15 @@ struct MainView: View {
                             .resizable()
                             .frame(width: 60, height: 60)
                     }
-                    .tint(Color(hex:  0xd2ebab))
-                    .shadow(radius: 3)
-                    .offset(x:140, y:350)
+                    .tint(Color(hex:  0xaee459))
+                    .offset(x:140, y:360)
+                    .shadow(radius: 15)
                 }
             }
             .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 8) {
                     showButton = true
-                }
+                } //버튼이 등장하는 데까지 걸리는 시간
             }
         }
     }
