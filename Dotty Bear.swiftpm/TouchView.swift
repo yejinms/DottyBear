@@ -93,12 +93,19 @@ struct TouchView: View {
     
     @State var touchView: SKView!
     @State var letterLabel: UILabel!
-    @State var btn1Image: Image = Image("touchpoint")
-    @State var btn2Image: Image = Image("touchpoint")
-    @State var btn3Image: Image = Image("touchpoint")
-    @State var btn4Image: Image = Image("touchpoint")
-    @State var btn5Image: Image = Image("touchpoint")
-    @State var btn6Image: Image = Image("touchpoint")
+    @State var btn1ImageOn: Image = Image("touchpoint")
+    @State var btn2ImageOn: Image = Image("touchpoint")
+    @State var btn3ImageOn: Image = Image("touchpoint")
+    @State var btn4ImageOn: Image = Image("touchpoint")
+    @State var btn5ImageOn: Image = Image("touchpoint")
+    @State var btn6ImageOn: Image = Image("touchpoint")
+    @State var btn1ImageOff: Image = Image("touchpoint3")
+    @State var btn2ImageOff: Image = Image("touchpoint3")
+    @State var btn3ImageOff: Image = Image("touchpoint3")
+    @State var btn4ImageOff: Image = Image("touchpoint3")
+    @State var btn5ImageOff: Image = Image("touchpoint3")
+    @State var btn6ImageOff: Image = Image("touchpoint3")
+    
     
     @State var btn1IsHidden = false
     @State var btn2IsHidden = false
@@ -120,47 +127,47 @@ struct TouchView: View {
     
     func r(){
         
-        btn1Image = Image("touchpoint2")
-        btn2Image = Image("touchpoint2")
-        btn3Image = Image("touchpoint2")
-        btn4Image = Image("touchpoint3")
-        btn5Image = Image("touchpoint2")
-        btn6Image = Image("touchpoint3")
+        btn1ImageOn = Image("touchpoint2")
+        btn2ImageOn = Image("touchpoint2")
+        btn3ImageOn = Image("touchpoint2")
+        btn4ImageOn = Image("touchpoint3")
+        btn5ImageOn = Image("touchpoint2")
+        btn6ImageOn = Image("touchpoint3")
         count = 4
         letter = "r"
         
     }
     
     func a(){
-        btn1Image = Image("touchpoint2")
-        btn2Image = Image("touchpoint3")
-        btn3Image = Image("touchpoint3")
-        btn4Image = Image("touchpoint3")
-        btn5Image = Image("touchpoint3")
-        btn6Image = Image("touchpoint3")
+        btn1ImageOn = Image("touchpoint2")
+        btn2ImageOn = Image("touchpoint3")
+        btn3ImageOn = Image("touchpoint3")
+        btn4ImageOn = Image("touchpoint3")
+        btn5ImageOn = Image("touchpoint3")
+        btn6ImageOn = Image("touchpoint3")
         count = 1
         letter = "a"
     }
     
     func i(){
-        btn1Image = Image("touchpoint3")
-        btn2Image = Image("touchpoint2")
-        btn3Image = Image("touchpoint3")
-        btn4Image = Image("touchpoint2")
-        btn5Image = Image("touchpoint3")
-        btn6Image = Image("touchpoint3")
+        btn1ImageOn = Image("touchpoint3")
+        btn2ImageOn = Image("touchpoint2")
+        btn3ImageOn = Image("touchpoint3")
+        btn4ImageOn = Image("touchpoint2")
+        btn5ImageOn = Image("touchpoint3")
+        btn6ImageOn = Image("touchpoint3")
         count = 2
         letter = "i"
     }
     
     
     func n(){
-        btn1Image = Image("touchpoint2")
-        btn2Image = Image("touchpoint3")
-        btn3Image = Image("touchpoint2")
-        btn4Image = Image("touchpoint2")
-        btn5Image = Image("touchpoint2")
-        btn6Image = Image("touchpoint3")
+        btn1ImageOn = Image("touchpoint2")
+        btn2ImageOn = Image("touchpoint3")
+        btn3ImageOn = Image("touchpoint2")
+        btn4ImageOn = Image("touchpoint2")
+        btn5ImageOn = Image("touchpoint2")
+        btn6ImageOn = Image("touchpoint3")
         count = 4
         letter = "n"
     }
@@ -217,24 +224,24 @@ struct TouchView: View {
             
             HStack{
                 VStack{
-                    btn1Image
+                    btn1ImageOn
                         .resizable()
                         .frame(width: 90, height: 90)
-                    btn2Image
+                    btn2ImageOn
                         .resizable()
                         .frame(width: 90, height: 90)
-                    btn3Image
+                    btn3ImageOn
                         .resizable()
                         .frame(width: 90, height: 90)
                 }
                 VStack{
-                    btn4Image
+                    btn4ImageOff
                         .resizable()
                         .frame(width: 90, height: 90)
-                    btn5Image
+                    btn5ImageOn
                         .resizable()
                         .frame(width: 90, height: 90)
-                    btn6Image
+                    btn6ImageOff
                         .resizable()
                         .frame(width: 90, height: 90)
                 }
@@ -243,6 +250,23 @@ struct TouchView: View {
 //            .padding()
             
             
+            Text("R")
+                .fontWeight(.bold)
+                .font(Font.custom("Hoefler Text Black", size: 68))
+                .foregroundColor(.white)
+                .padding(.top, 500)
+                
+        
+            
+            Button (action:{
+                self.tag = 1
+            }) {    Image(systemName: "arrow.right.circle")
+                    .resizable()
+                    .frame(width: 60, height: 60)
+            }
+            .tint(Color(hex:  0xffffff))
+            .shadow(radius: 15)
+            .offset(x:140, y:350)
         
         }
         
